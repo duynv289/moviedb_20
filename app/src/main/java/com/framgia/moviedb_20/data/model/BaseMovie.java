@@ -11,7 +11,8 @@ public class BaseMovie {
     private String mReleaseDate;
     private int mRunTime;
     private double mVoteAverage;
-    public BaseMovie(JSONObject jsonObject){
+
+    public BaseMovie(JSONObject jsonObject) {
         mId = jsonObject.optInt(JsonKey.ID);
         mBackdropPath = jsonObject.optString(JsonKey.BACKDROP_PATH);
         mPosterPath = jsonObject.optString(JsonKey.POSTER_PATH);

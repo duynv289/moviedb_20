@@ -1,6 +1,7 @@
 package com.framgia.moviedb_20.screen.main.home;
 
 import com.framgia.moviedb_20.data.repository.MovieRepository;
+import com.framgia.moviedb_20.utils.Constants;
 
 public class HomePresenter implements HomeContract.Presenter {
 
@@ -58,29 +59,25 @@ public class HomePresenter implements HomeContract.Presenter {
     public void loadUpComing(int tag) {
         mView.showProgress();
         mTag = tag;
-        mMovieRepository.getCategory().execute(
-                "https://api.themoviedb.org/3/movie/upcoming?api_key=3956f50a726a2f785334c24759b97dc6&language=en-US&page=1");
+        mMovieRepository.getMovies(Constants.UPCOMING);
     }
 
     @Override
     public void loadPopular(int tag) {
         mTag = tag;
-        mMovieRepository.getCategory().execute(
-                "https://api.themoviedb.org/3/movie/popular?api_key=3956f50a726a2f785334c24759b97dc6&language=en-US&page=1");
+        mMovieRepository.getMovies(Constants.POPULAR);
     }
 
     @Override
     public void loadNowPlaying(int tag) {
         mTag = tag;
-        mMovieRepository.getCategory().execute(
-                "https://api.themoviedb.org/3/movie/now_playing?api_key=3956f50a726a2f785334c24759b97dc6&language=en-US&page=1");
+        mMovieRepository.getMovies(Constants.NOW_PLAYING);
     }
 
     @Override
     public void loadTopRated(int tag) {
         mTag = tag;
-        mMovieRepository.getCategory().execute(
-                "https://api.themoviedb.org/3/movie/top_rated?api_key=3956f50a726a2f785334c24759b97dc6&language=en-US&page=1");
+        mMovieRepository.getMovies(Constants.TOP_RATED);
     }
 
     public int getTag() {

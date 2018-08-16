@@ -7,23 +7,50 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieDetail extends BaseMovie{
+public class MovieDetail extends BaseMovie {
+
+    private BaseMovie mBaseMovie;
+    private List<Genre> mGenres;
+    private List<Producer> mProducers;
 
     public MovieDetail(JSONObject jsonObject) throws JSONException {
         super(jsonObject);
-        List<Genre> genreList = new ArrayList<>();
-
+        mGenres = new ArrayList<>();
         JSONArray genres = jsonObject.optJSONArray(JsonKey.GENRE);
-        for(int i=0;i<genres.length();i++){
+        for (int i = 0; i < genres.length(); i++) {
             JSONObject genreObject = genres.optJSONObject(i);
-            genreList.add(new Genre(genreObject));
+            mGenres.add(new Genre(genreObject));
         }
         JSONArray producers = jsonObject.optJSONArray(JsonKey.PRODUCER);
-        List<Producer> producerList = new ArrayList<>();
+        mProducers = new ArrayList<>();
         for (int j = 0; j < producers.length(); j++) {
             JSONObject producerObject = producers.optJSONObject(j);
-            producerList.add(new Producer(producerObject));
+            mProducers.add(new Producer(producerObject));
         }
+    }
+
+    public BaseMovie getBaseMovie() {
+        return mBaseMovie;
+    }
+
+    public void setBaseMovie(BaseMovie baseMovie) {
+        mBaseMovie = baseMovie;
+    }
+
+    public List<Genre> getGenres() {
+        return mGenres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        mGenres = genres;
+    }
+
+    public List<Producer> getProducers() {
+        return mProducers;
+    }
+
+    public void setProducers(List<Producer> producers) {
+        mProducers = producers;
     }
 
     public static class JsonKey extends BaseJsonKey {

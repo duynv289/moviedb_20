@@ -2,6 +2,7 @@ package com.framgia.moviedb_20.data.api;
 
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 

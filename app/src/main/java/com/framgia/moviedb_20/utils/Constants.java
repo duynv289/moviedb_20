@@ -19,6 +19,8 @@ public final class Constants {
     public static final String DOMAIN_POSTER_IMAGE = "https://image.tmdb.org/t/p/w500";
     public static final String BLANK_STRING = "";
     public static final String STRING_COLON = ": ";
+    public static final int PAGE_NUMBER = 1;
+    public static final int MAX_LINES = 999;
     private Constants() {
         // No-op
     }

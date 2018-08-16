@@ -16,6 +16,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Ge
 
     public NavigationAdapter(List<String> genres) {
         this.mGenres = genres;
+
     }
 
     @NonNull
@@ -38,6 +39,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Ge
 
     static class GenreViewHolder extends RecyclerView.ViewHolder {
         TextView mTextView;
+
         public GenreViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.text_genre);

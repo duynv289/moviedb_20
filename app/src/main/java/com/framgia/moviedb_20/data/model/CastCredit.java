@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cast{
+public class CastCredit {
     private int mPage;
     private String mBirthday;
     private String mKnowForDepartment;
@@ -18,10 +18,12 @@ public class Cast{
     private String mPlaceOfBirth;
     private String mProfilePath;
     private BaseMovie mBaseMovie;
-    public Cast() {
+    private List<Integer> mGenreIds;
+
+    public CastCredit() {
     }
 
-    public Cast(JSONObject jsonObject) throws JSONException {
+    public CastCredit(JSONObject jsonObject) throws JSONException {
         mPage = jsonObject.optInt(JsonKey.PAGE);
         JSONArray resultsArray = jsonObject.optJSONArray(JsonKey.RESULTS);
         for (int i = 0; i < resultsArray.length(); i++) {
@@ -37,13 +39,22 @@ public class Cast{
             for (int j = 0; j < movies.length(); j++) {
                 JSONObject movieObject = movies.optJSONObject(j);
                 mBaseMovie = new BaseMovie(movieObject);
-                JSONArray IdArray = movieObject.optJSONArray(MovieDetail.JsonKey.GENRE_ID);
-                for(int k=0;k<IdArray.length();k++){
-                    List<Integer> listId = new ArrayList<>();
-                    listId.add(IdArray.getInt(k));
+                JSONArray genreIds = movieObject.optJSONArray(MovieDetail.JsonKey.GENRE_ID);
+                for (int k = 0; k < genreIds.length(); k++) {
+                    mGenreIds = new ArrayList<>();
+                    mGenreIds.add(genreIds.getInt(k));
                 }
             }
         }
+    }
+
+
+    public int getPage() {
+        return mPage;
+    }
+
+    public void setPage(int page) {
+        mPage = page;
     }
 
     public String getBirthday() {
@@ -61,7 +72,6 @@ public class Cast{
     public void setKnowForDepartment(String knowForDepartment) {
         mKnowForDepartment = knowForDepartment;
     }
-
 
     public int getId() {
         return mId;
@@ -103,18 +113,25 @@ public class Cast{
         mProfilePath = profilePath;
     }
 
-    public int getPage() {
-        return mPage;
+    public BaseMovie getBaseMovie() {
+        return mBaseMovie;
     }
 
-    public void setPage(int page) {
-        mPage = page;
+    public void setBaseMovie(BaseMovie baseMovie) {
+        mBaseMovie = baseMovie;
     }
 
+    public List<Integer> getGenreIds() {
+        return mGenreIds;
+    }
+
+    public void setGenreIds(List<Integer> genreIds) {
+        mGenreIds = genreIds;
+    }
 
     @Override
     public String toString() {
-        return "Cast{" +
+        return "CastDetail{" +
                 "mPage=" + mPage +
                 ", mBirthday='" + mBirthday + '\'' +
                 ", mKnowForDepartment='" + mKnowForDepartment + '\'' +
@@ -123,11 +140,10 @@ public class Cast{
                 ", mBiography='" + mBiography + '\'' +
                 ", mPlaceOfBirth='" + mPlaceOfBirth + '\'' +
                 ", mProfilePath='" + mProfilePath + '\'' +
+                ", mBaseMovie=" + mBaseMovie +
+                ", mGenreIds=" + mGenreIds +
                 '}';
     }
-
-
-
 
     public static class JsonKey extends BaseJsonKey {
         public static final String PAGE = "page";

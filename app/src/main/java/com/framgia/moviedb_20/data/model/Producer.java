@@ -6,9 +6,9 @@ public class Producer {
     private String mHeadquarter;
     private String mHomepage;
     private int mId;
-    private String mLogo_path;
+    private String mLogoPath;
     private String mName;
-    private String mOrigin_country;
+    private String mOriginCountry;
 
     public Producer() {
     }
@@ -18,8 +18,8 @@ public class Producer {
         mName = jsonObject.optString(JsonKey.NAME);
         mHeadquarter = jsonObject.optString(JsonKey.HEADQUARTERS);
         mHomepage = jsonObject.optString(JsonKey.HOMEPAGE);
-        mLogo_path = jsonObject.optString(JsonKey.LOGO_PATH);
-        mOrigin_country = jsonObject.optString(JsonKey.ORIGIN_COUNTRY);
+        mLogoPath = jsonObject.optString(JsonKey.LOGO_PATH);
+        mOriginCountry = jsonObject.optString(JsonKey.ORIGIN_COUNTRY);
     }
 
 
@@ -47,12 +47,12 @@ public class Producer {
         mId = id;
     }
 
-    public String getLogo_path() {
-        return mLogo_path;
+    public String getLogoPath() {
+        return mLogoPath;
     }
 
-    public void setLogo_path(String logo_path) {
-        mLogo_path = logo_path;
+    public void setLogoPath(String logoPath) {
+        mLogoPath = logoPath;
     }
 
     public String getName() {
@@ -63,12 +63,12 @@ public class Producer {
         mName = name;
     }
 
-    public String getOrigin_country() {
-        return mOrigin_country;
+    public String getOriginCountry() {
+        return mOriginCountry;
     }
 
-    public void setOrigin_country(String origin_country) {
-        mOrigin_country = origin_country;
+    public void setOriginCountry(String originCountry) {
+        mOriginCountry = originCountry;
     }
 
 
@@ -78,9 +78,9 @@ public class Producer {
                 "mHeadquarter='" + mHeadquarter + '\'' +
                 ", mHomepage='" + mHomepage + '\'' +
                 ", mId=" + mId +
-                ", mLogo_path='" + mLogo_path + '\'' +
+                ", mLogoPath='" + mLogoPath + '\'' +
                 ", mName='" + mName + '\'' +
-                ", mOrigin_country='" + mOrigin_country + '\'' +
+                ", mOriginCountry='" + mOriginCountry + '\'' +
                 '}';
     }
 

@@ -1,11 +1,5 @@
 package com.framgia.moviedb_20.data.source;
 
-import com.framgia.moviedb_20.data.api.GetCastDetailAsyncTask;
-import com.framgia.moviedb_20.data.api.GetCategoryAsyncTask;
-import com.framgia.moviedb_20.data.api.GetMovieCreditAsyncTask;
-import com.framgia.moviedb_20.data.api.GetMovieDetailAsyncTask;
-import com.framgia.moviedb_20.data.api.GetProducerAsyncTask;
-
 public interface MovieDataSource {
 
     interface LocalDataSource {
@@ -13,15 +7,10 @@ public interface MovieDataSource {
     }
 
     interface RemoteDataSource {
+        void getMovies(String category);
 
-        GetMovieCreditAsyncTask getMovieCredit();
+        void getMovieDetail(int id);
 
-        GetMovieDetailAsyncTask getMovieDetail();
-
-        GetCategoryAsyncTask getCategory();
-
-        GetCastDetailAsyncTask getCast();
-
-        GetProducerAsyncTask getProducer();
+        void getMovieCast(int id);
     }
 }

@@ -2,7 +2,7 @@ package com.framgia.moviedb_20.data.model;
 
 import org.json.JSONObject;
 
-public class Genre extends BaseJsonKey{
+public class Genre extends BaseJsonKey {
     private int mId;
     private String mName;
 
@@ -10,8 +10,8 @@ public class Genre extends BaseJsonKey{
     }
 
     public Genre(JSONObject jsonObject) {
-       mId = jsonObject.optInt(BaseJsonKey.ID);
-       mName = jsonObject.optString(BaseJsonKey.NAME);
+        mId = jsonObject.optInt(BaseJsonKey.ID);
+        mName = jsonObject.optString(BaseJsonKey.NAME);
     }
 
     public int getId() {
@@ -37,4 +37,5 @@ public class Genre extends BaseJsonKey{
                 ", mName='" + mName + '\'' +
                 '}';
     }
+
 }
